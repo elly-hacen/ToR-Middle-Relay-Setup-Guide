@@ -73,4 +73,4 @@
 
 ### Note
 
-For Debian users, the procedure is similar, except for the installation of Tor. This guide is specifically tailored for Arch Linux users (i.e., "I use Arch btw ⚜️").
+For Debian users, the procedure is similar, except for the installation of Tor. This guide is specifically tailored for Arch Linux users (i.e., "i use Arch btw ⚜️").
