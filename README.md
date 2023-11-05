@@ -70,3 +70,7 @@
   ```bash    
   $ nyx
   ```
+
+### Note
+
+For Debian users, the procedure is similar, except for the installation of Tor. This guide is specifically tailored for Arch Linux users (i.e., "I use Arch btw ⚜️").
