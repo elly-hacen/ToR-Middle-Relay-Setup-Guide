@@ -1,4 +1,20 @@
-## Installation Steps
+## Middle Relay Requirements
+
+To operate effectively as a middle relay, ensure your system meets the following specifications:
+
+- **Bandwidth:** At least 10 Mbit/s (16 Mbit/s recommended) both ways (upstream and downstream).
+- **Connections:** Able to handle at least 7000 concurrent connections.
+- **Monthly Traffic:** At least 100 GBytes (2 TB or more recommended).
+- **RAM:** At least 512 MB if slower than 40 Mbps or 1 GB if faster.
+- **IP:** IPv4 address, dynamic or static (preferred with at least 3 hours unchanged).
+- **Disk Storage:** At least 200 MB.
+- **Uptime:** Ideally 24/7 but more than 2 hours a day is advised.
+
+Ensure your system meets these specifications to function optimally as a middle relay in the Tor network.
+
+---
+
+### README: Installation Steps and Configuration
 
 1. #### Installing `Tor`
 
@@ -24,52 +40,50 @@
     $ systemctl enable --now tor
     ```
 
-## Configuring Tor
+4. #### Configuring Tor
 
-1. #### Open the Tor Configuration File
+    - Open the Tor Configuration File:
 
-    Use the following command to open the Tor configuration file in the nano text editor:
+      Use the following command to open the Tor configuration file in the nano text editor:
 
-    ```bash
-    $ sudo nano /etc/tor/torrc
-    ```
+      ```bash
+      $ sudo nano /etc/tor/torrc
+      ```
 
-2. #### Add the Following Configuration
+    - Add the Following Configuration to the `torrc` file:
 
-    Append the following configurations to the `torrc` file:
+      ```bash
+      ## BASE CONFIG
 
-    ```bash
-    ## BASE CONFIG
+      Nickname your_nickname    # Change "your_nickname" to something you like
+      ContactInfo your@email   # Write your e-mail and be aware it will be published
+      ORPort 443               # You might use a different port
+      ExitRelay 0
+      SocksPort 0
 
-    Nickname your_nickname    # Change "your_nickname" to something you like
-    ContactInfo your@email   # Write your e-mail and be aware it will be published
-    ORPort 443               # You might use a different port
-    ExitRelay 0
-    SocksPort 0
-
-    ## BANDWIDTH
+      ## BANDWIDTH
     
-    ## The following configuration limits both upload and download to a maximum of 800GB per month. 
-    ## This limit resets at the beginning of each month, precisely at midnight on the 1st.
+      The following configuration limits both upload and download to a maximum of 800GB per month. 
+      This limit resets at the beginning of each month, precisely at midnight on the 1st.
 
-    AccountingMax 800 GBytes
-    AccountingStart month 1 0:00
+      AccountingMax 800 GBytes
+      AccountingStart month 1 0:00
 
-    ## MONITORING
+      ## MONITORING
 
-    ControlPort 9051
-    CookieAuthentication 1
-    ```
+      ControlPort 9051
+      CookieAuthentication 1
+      ```
 
-   Similar settings might already exist in the `torrc` file, but they are usually commented out. This section organizes all the configurations in one place for better management.
+    - Run Nyx:
 
-## Run Nyx
+      Run `nyx` by executing the following command in your terminal:
 
-  Run `nyx` by running following command in your terminal:
+      ```bash    
+      $ nyx
+      ```
 
-  ```bash    
-  $ nyx
-  ```
+---
 
 ### Note
 
