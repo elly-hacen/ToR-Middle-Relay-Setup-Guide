@@ -63,8 +63,8 @@ Ensure your system meets these specifications to function optimally as a middle 
     
     ## BANDWIDTH
     
-    The following configuration limits both upload and download to a maximum of 800GB per month. 
-    This limit resets at the beginning of each month, precisely at midnight on the 1st.
+    # The following configuration limits both upload and download to a maximum of 800GB per month. 
+    # This limit resets at the beginning of each month, precisely at midnight on the 1st.
     
     AccountingMax 800 GBytes
     AccountingStart month 1 0:00
