@@ -14,7 +14,7 @@ Ensure your system meets these specifications to function optimally as a middle 
 
 ---
 
-### README: Installation Steps and Configuration
+### Installation Steps
 
 1. #### Installing `Tor`
 
@@ -40,44 +40,44 @@ Ensure your system meets these specifications to function optimally as a middle 
     $ systemctl enable --now tor
     ```
 
-4. #### Configuring Tor
+### Configuring Tor
 
-    - Open the Tor Configuration File:
+1. Open the Tor Configuration File:
 
-      Use the following command to open the Tor configuration file in the nano text editor:
-
-      ```bash
-      $ sudo nano /etc/tor/torrc
-      ```
-
-    - Add the Following Configuration to the `torrc` file:
-
-      ```bash
-      ## BASE CONFIG
-
-      Nickname your_nickname    # Change "your_nickname" to something you like
-      ContactInfo your@email   # Write your e-mail and be aware it will be published
-      ORPort 443               # You might use a different port
-      ExitRelay 0
-      SocksPort 0
-
-      ## BANDWIDTH
+    Use the following command to open the Tor configuration file in the nano text editor:
     
-      The following configuration limits both upload and download to a maximum of 800GB per month. 
-      This limit resets at the beginning of each month, precisely at midnight on the 1st.
+    ```bash
+    $ sudo nano /etc/tor/torrc
+    ```
 
-      AccountingMax 800 GBytes
-      AccountingStart month 1 0:00
+2. Add the Following Configuration to the `torrc` file:
 
-      ## MONITORING
+    ```bash
+    ## BASE CONFIG
+    
+    Nickname your_nickname    # Change "your_nickname" to something you like
+    ContactInfo your@email   # Write your e-mail and be aware it will be published
+    ORPort 443               # You might use a different port
+    ExitRelay 0
+    SocksPort 0
+    
+    ## BANDWIDTH
+    
+    The following configuration limits both upload and download to a maximum of 800GB per month. 
+    This limit resets at the beginning of each month, precisely at midnight on the 1st.
+    
+    AccountingMax 800 GBytes
+    AccountingStart month 1 0:00
+    
+    ## MONITORING
+    
+    ControlPort 9051
+    CookieAuthentication 1
+    ```
 
-      ControlPort 9051
-      CookieAuthentication 1
-      ```
+### Run Nyx:
 
-    - Run Nyx:
-
-      Run `nyx` by executing the following command in your terminal:
+1. Run `nyx` by executing the following command in your terminal:
 
       ```bash    
       $ nyx
@@ -88,3 +88,10 @@ Ensure your system meets these specifications to function optimally as a middle 
 ### Note
 
 For Debian users, the procedure is similar, except for the installation of Tor. This guide is specifically tailored for Arch Linux users (i.e., "i use Arch btw ⚜️").
+
+### Sources
+
+- [Types of relays](https://community.torproject.org/relay/types-of-relays/)
+- [Relay Requirements](https://community.torproject.org/relay/relays-requirements/)
+- [The lifecycle of a new relay](https://blog.torproject.org/lifecycle-of-a-new-relay/)
+- [Tor setup guide for different distributions](https://community.torproject.org/relay/setup/guard/)
